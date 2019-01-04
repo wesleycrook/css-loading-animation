@@ -1,0 +1,123 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>CSS Loading Animation Test</title>
+        <style>
+            body {
+                width: 800px;
+                max-width: 90%;
+                margin: 25px auto;
+            }
+            
+            input {
+                margin-bottom: 10px;
+            }
+
+            .loading-animation-wrapper {
+                background-color: #cecece;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                overflow: hidden;
+                opacity: 0.7;
+            }
+
+            .loading-animation-wrapper.show {
+                -webkit-animation: fadeInFromNone 0.5s ease-in;
+                -moz-animation: fadeInFromNone 0.5s ease-in;
+                -o-animation: fadeInFromNone 0.5s ease-in;
+                animation: fadeInFromNone 0.5s ease-in;
+            }
+
+            @keyframes fadeInFromNone {
+                0% {
+                    display: none;
+                    opacity: 0;
+                }
+                100% {
+                    display: block;
+                    opacity: 0.7;
+                }
+            }
+
+            @-webkit-keyframes fadeInFromNone {
+                0% {
+                    display: none;
+                    opacity: 0;
+                }
+                100% {
+                    display: block;
+                    opacity: 0.7;
+                }
+            }
+
+            @-moz-keyframes fadeInFromNone {
+                0% {
+                    display: none;
+                    opacity: 0;
+                }
+                1% {
+                    display: block;
+                    opacity: 0.7;
+                }
+            }
+
+            /* For initial page load, just hide it quickly without animation */
+            .loading-animation-wrapper.hide {
+                display: none;
+            }
+
+            .loading-animation-wrapper.hide-animate {
+                visibility: hidden;
+                opacity: 0;
+                transition: all 0.25s linear 0.25s;
+            }
+
+            .loading-animation {
+                border: 5px solid #f3f3f3;
+                border-radius: 50%;
+                border-top: 5px solid #3498db;
+                width: 50px;
+                height: 50px;
+                -webkit-animation: spin 0.7s linear infinite; /* Safari */
+                animation: spin 0.7s linear infinite;
+                
+                /* Center the animation within wrapper div */
+                margin: 0 auto;
+                position: relative;
+                top: 50%;
+            }
+
+            /* Safari */
+            @-webkit-keyframes spin {
+                0% { -webkit-transform: rotate(0deg); }
+                100% { -webkit-transform: rotate(360deg); }
+            }
+
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        </style>
+    </head>
+    <body>
+        <h1>CSS Loading Animation Test</h1>
+        <p>Luctus morbi rem vulputate conubia tenetur delectus, venenatis expedita quasi nesciunt pede facere eiusmod urna eligendi, hic id mus imperdiet est dolorem minima tempora vivamus minima. Iste! Wisi quibusdam eu beatae senectus. Magni quos rem nulla? Donec sollicitudin a maecenas, justo recusandae? Perferendis luctus mattis leo hymenaeos ultrices, penatibus pellentesque.</p>
+        
+        <p>Feugiat adipisci eu animi hendrerit pulvinar repudiandae est sagittis, pellentesque rem gravida occaecati reprehenderit aspernatur incididunt arcu cupiditate blanditiis soluta! Nesciunt natoque. Venenatis aliqua, aliquip tortor, eos laboris maxime torquent, do praesent voluptates excepturi quisquam eiusmod? Irure dignissim turpis rerum non quisquam, justo sociosqu parturient natoque culpa pellentesque, consequatur lobortis.</p>
+
+        <div  id="loading-animation-wrapper" class="loading-animation-wrapper">
+            <div class="loading-animation"></div>
+        </div>
+
+        <h3>Press Submit to See Loading Animation:</h3>
+        <form action="#">
+            <input type="text" id="name" placeholder="name"><br>
+            <input type="submit" id="submit" value="Submit">
+        </form>
+
+        <script src="test.js"></script>
+    </body>
+</html>
